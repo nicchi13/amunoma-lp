@@ -443,7 +443,13 @@
   .profile .role { font-family: 'Roboto Mono', monospace; font-size: 12px; color: var(--accent-deep); letter-spacing: 0.04em; margin-bottom: 16px; }
   .profile p { color: var(--ink-soft); font-size: 14.5px; }
   .profile p strong { color: var(--ink); }
-  .sns-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .sns-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .connect { display: grid; gap: 22px; margin-top: 26px; }
+  .connect-group { display: grid; gap: 11px; }
+  .connect-lab {
+    font-family: 'Roboto Mono', monospace; font-size: 11px; letter-spacing: .04em;
+    color: var(--ink-faint); text-transform: uppercase;
+  }
   .sns-chip {
     display: inline-flex; align-items: center; gap: 8px;
     background: #fff; border: 1px solid var(--line-warm); color: var(--ink);
@@ -460,7 +466,9 @@
   .sns-chip .th { background: var(--ink); }
   .sns-chip .yt { background: #e8443b; }
   .sns-chip .tk { background: #111; }
-  .sns-chip .sh { background: var(--accent); }
+  .sns-chip .sh { background: var(--accent); font-size: 8px; padding: 0 2px; width: auto; min-width: 30px; }
+  .sns-chip.shop { border-color: var(--accent); background: var(--warm); }
+  .sns-chip.shop:hover { background: #fbe3d2; }
   .sns-chip .handle { color: var(--ink-faint); font-family: 'Roboto Mono', monospace; font-size: 11px; }
 
   /* ============ FAQ ============ */
@@ -525,6 +533,17 @@
   .atsukai-card h3 { font-size: 22px; margin-bottom: 10px; }
   .atsukai-card p { font-size: 14.5px; color: var(--ink-soft); max-width: 480px; margin: 0 auto 18px; }
   .atsukai-card .ac-note { font-size: 12.5px; color: var(--ink-faint); }
+  .cafe-info {
+    display: inline-flex; flex-direction: column; gap: 10px;
+    background: var(--warm); border: 1px solid var(--line-warm); border-radius: 16px;
+    padding: 18px 22px; margin: 0 auto 18px; text-align: left;
+  }
+  .cafe-info .ci-row { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; color: var(--ink); font-weight: 500; }
+  .cafe-info .ci-ic { font-size: 16px; line-height: 1.4; flex-shrink: 0; }
+  .cafe-info .ci-row small { display: block; font-size: 12px; color: var(--ink-faint); font-weight: 400; margin-top: 3px; }
+  @media(max-width:600px){
+    .cafe-info { display: flex; width: 100%; box-sizing: border-box; }
+  }
 
   /* ============ プライベートレッスン（控えめ） ============ */
   .private-modest {
@@ -683,7 +702,7 @@
   }
   @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(34,180,98,.45);} 70%{box-shadow:0 0 0 8px rgba(34,180,98,0);} 100%{box-shadow:0 0 0 0 rgba(34,180,98,0);} }
   .recruit-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 26px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 26px;
   }
   .rc-card {
     background: #fff; border: 1px solid var(--line); border-radius: 16px;
@@ -703,6 +722,7 @@
   .rc-card .seat .n { font-family: 'Shippori Mincho', serif; font-size: 18px; }
   .rc-card .seat.open { color: #1f8f54; background: #e9f7ef; }
   .rc-card .seat.full { color: #8a8178; background: #efeae3; }
+  .rc-card .seat.soon { color: #b9772a; background: #fbf0df; }
 
   /* ============ NEW: 日程ボックス（募集型） ============ */
   .schedule {
@@ -1042,20 +1062,23 @@
         <p>
           その小さな<strong>「できた」</strong>が、私の人生を少しずつ前に進めてくれました。<br class="br-sp" />だからこの教室では、上手に編むことよりも、<strong>「できた！」という喜び</strong>を大切にしています。
         </p>
-        <div class="qwords">
-          <span class="lab">参加者の声でよく出る言葉 →</span>
-          <span>やさしい</span>
-          <span>丁寧</span>
-          <span>癒される</span>
-          <span>安心できる</span>
-        </div>
-        <div class="sns-row">
-          <a class="sns-chip" href="https://www.instagram.com/chipie_crochet/" target="_blank" rel="noopener"><span class="ic ig">IG</span>Instagram <span class="handle">@chipie_crochet</span></a>
-          <a class="sns-chip" href="https://www.threads.com/@chipie_crochet" target="_blank" rel="noopener"><span class="ic th">TH</span>Threads <span class="handle">@chipie_crochet</span></a>
-          <a class="sns-chip" href="https://youtube.com/@chipie_crochet" target="_blank" rel="noopener"><span class="ic yt">YT</span>YouTube <span class="handle">@chipie_crochet</span></a>
-          <a class="sns-chip" href="https://www.tiktok.com/@chipie_crochet" target="_blank" rel="noopener"><span class="ic tk">TT</span>TikTok <span class="handle">@chipie_crochet</span></a>
-          <a class="sns-chip" href="https://minne.com/@chipiedayo" target="_blank" rel="noopener"><span class="ic sh">SH</span>minne <span class="handle">枯れないお花</span></a>
-          <a class="sns-chip" href="https://chipie13.base.shop/" target="_blank" rel="noopener"><span class="ic sh">SH</span>BASE <span class="handle">chipie13</span></a>
+        <div class="connect">
+          <div class="connect-group">
+            <span class="connect-lab">SNS — 編み物を発信中</span>
+            <div class="sns-row">
+              <a class="sns-chip" href="https://www.instagram.com/chipie_crochet/" target="_blank" rel="noopener"><span class="ic ig">IG</span>Instagram <span class="handle">@chipie_crochet</span></a>
+              <a class="sns-chip" href="https://www.threads.com/@chipie_crochet" target="_blank" rel="noopener"><span class="ic th">TH</span>Threads <span class="handle">@chipie_crochet</span></a>
+              <a class="sns-chip" href="https://youtube.com/@chipie_crochet" target="_blank" rel="noopener"><span class="ic yt">YT</span>YouTube <span class="handle">@chipie_crochet</span></a>
+              <a class="sns-chip" href="https://www.tiktok.com/@chipie_crochet" target="_blank" rel="noopener"><span class="ic tk">TT</span>TikTok <span class="handle">@chipie_crochet</span></a>
+            </div>
+          </div>
+          <div class="connect-group">
+            <span class="connect-lab">🌷 枯れないお花を販売中のオンラインショップ</span>
+            <div class="sns-row">
+              <a class="sns-chip shop" href="https://minne.com/@chipiedayo" target="_blank" rel="noopener"><span class="ic sh">minne</span>minneで見る</a>
+              <a class="sns-chip shop" href="https://chipie13.base.shop/" target="_blank" rel="noopener"><span class="ic sh">BASE</span>BASEで見る</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1090,6 +1113,14 @@
         <div class="rc-txt">
           <h4>編んで飾る、枯れないお花</h4>
           <div class="rc-when">日程調整中</div>
+        </div>
+        <span class="seat soon">近日募集</span>
+      </a>
+      <a href="#lesson-cafe" class="rc-card" style="text-decoration:none;color:inherit;">
+        <span class="rc-emoji">☕</span>
+        <div class="rc-txt">
+          <h4>編み物カフェ amunoma</h4>
+          <div class="rc-when">7/12（日）10:00〜12:00</div>
         </div>
         <span class="seat open">募集中</span>
       </a>
@@ -1225,28 +1256,28 @@
         <div class="body">
           <span class="first-flag">★ 基本ができる方への、特別な一日</span>
           <h3>編んで飾る、<br>枯れないお花</h3>
-          <div class="meta-tag">編んだお花を、ブーケにしてお持ち帰り。</div>
+          <div class="meta-tag">完成したお花はお持ち帰り、ご自宅で飾って楽しめます。</div>
           <div class="schedule">
             <span class="sc-head">💐 単発レッスン</span>
             <div class="sc-title">編んで飾る、枯れないお花（1日完結）</div>
             <dl>
               <dt>📅</dt><dd>日程は調整中（LINEでご案内）</dd>
               <dt>⏰</dt><dd>約2時間</dd>
-              <dt>👥</dt><dd>定員4名（少人数）</dd>
+              <dt>👥</dt><dd>定員4名〜（少人数）</dd>
               <dt>💰</dt><dd><b>5,000円</b>（材料費込み）</dd>
             </dl>
           </div>
           <p class="desc">
-            かぎ針編みで、お部屋に飾れるお花を作ります。<br class="br-sp" />
-            <strong>実際に販売作品にも使用している毛糸と材料</strong>を使いながら、ひとつずつ丁寧に制作。<br class="br-sp" />
-            ひまわりやチューリップ、バラなど、<strong>その時々の作品を楽しめる単発教室</strong>です。<br class="br-sp" />
-            完成したお花は<strong>ブーケにしてお持ち帰り</strong>いただけます。<br class="br-sp" />
-            飾るたびに「自分で作った」という嬉しさを感じられる、特別な作品づくりです。
+            かぎ針編みで、飾って楽しめる「枯れないお花」を作ります。<br class="br-sp" />
+            お部屋に飾るたびに、「これ、自分で作ったんだ」と嬉しくなる作品づくりです🌷<br class="br-sp" />
+            <strong>実際に販売作品にも使用している毛糸や材料</strong>を使いながら、ひとつずつ丁寧に制作します。<br class="br-sp" />
+            制作するお花は季節ごとに変わります。<br class="br-sp" />
+            ひまわりやチューリップ、バラなど、<strong>その時だけの作品作り</strong>をお楽しみください。
           </p>
           <div class="hero-points hp-3">
-            <div class="hp"><span class="hpn">01</span><div><b>ブーケにしてお持ち帰り</b>完成したあなただけの作品を</div></div>
-            <div class="hp"><span class="hpn">02</span><div><b>販売作品と同じ材料</b>教室用ではない、本物の材料で</div></div>
-            <div class="hp"><span class="hpn">03</span><div><b>その時々のお花</b>シーズンごとのモチーフを楽しめます</div></div>
+            <div class="hp"><span class="hpn">01</span><div><b>販売作品と同じ材料</b>教室用ではない、本物の材料で</div></div>
+            <div class="hp"><span class="hpn">02</span><div><b>季節のお花を楽しめる</b>シーズンごとのモチーフを</div></div>
+            <div class="hp"><span class="hpn">03</span><div><b>少人数で質問しやすい</b>分からないところは何度でも</div></div>
           </div>
           <dl>
             <dt>場所</dt><dd>阪急塚口駅すぐのレンタルスペース</dd>
@@ -1266,16 +1297,22 @@
       </div>
     </div>
 
-    <!-- 編み物会 -->
-    <div class="atsukai-card reveal">
-      <div class="ac-badge">☕ KNITTING CIRCLE — 編み物会</div>
-      <h3>編み物会</h3>
+    <!-- 編み物カフェ -->
+    <div class="atsukai-card reveal" id="lesson-cafe">
+      <div class="ac-badge">☕ KNITTING CAFÉ — 編み物カフェ</div>
+      <h3>編み物カフェ amunoma</h3>
       <p>
-        編み物仲間と一緒にゆるく楽しむ場所です。<br class="br-sp" />
-        作品づくりより、おしゃべりや交流がメイン。<br class="br-sp" />
-        好きな作品を持ち寄って、気軽に参加してください。
+        カフェでゆったり編み物を楽しむ時間。<br class="br-sp" />
+        教室ではなく、好きな作品を持ち寄って、<br class="br-sp" />
+        おしゃべりしながら編んで過ごしましょう。<br class="br-sp" />
+        私も一緒に編みながら参加します☕
       </p>
-      <p class="ac-note">※ ワンデイレッスンやコース参加者を優先的にご案内しています。詳細はLINEで。</p>
+      <div class="cafe-info">
+        <div class="ci-row"><span class="ci-ic">📍</span><span>大阪・福島駅近くのカフェ<br class="br-sp" /><small>阪神福島駅から徒歩約2分 / JR福島駅から徒歩約5分</small></span></div>
+        <div class="ci-row"><span class="ci-ic">📅</span><span>7/12（日）10:00〜12:00</span></div>
+        <div class="ci-row"><span class="ci-ic">💰</span><span>1,200円（＋ワンドリンク☕）</span></div>
+      </div>
+      <p class="ac-note">※ どなたでも参加OK（ワンデイ・コース参加者を優先的にご案内）。LINEで「<b>カフェ</b>」と送ると申し込みリンクが届きます。</p>
     </div>
 
     <p class="sub-divider">— ご希望の方へ —</p>
@@ -1320,17 +1357,17 @@
     <div class="eyebrow">06 — ひとめで比較</div>
     <h2 class="section-title">レッスンの違い、<span class="hl">並べてみました。</span></h2>
     <div class="cmp">
-      <div class="cmp-row head"><div></div><div>ワンデイ</div><div>趣味コース</div><div>枯れないお花</div><div>プライベート</div></div>
+      <div class="cmp-row head"><div></div><div>ワンデイ</div><div>編み物を趣味にする<br>3回コース</div><div>枯れないお花</div><div>プライベート</div></div>
       <div class="cmp-row"><div>価格</div><div>3,000円</div><div>12,000円（全3回）<br><small>1回4,000円</small></div><div>5,000円</div><div>5,500円／90分</div></div>
       <div class="cmp-row"><div>所要</div><div>2時間（単発）</div><div>2時間 × 3回</div><div>約2時間（単発）</div><div>90分～</div></div>
-      <div class="cmp-row"><div>定員</div><div>4名</div><div>4名</div><div>4名</div><div>マンツーマン</div></div>
+      <div class="cmp-row"><div>定員</div><div>4名</div><div>4名</div><div>4名〜</div><div>マンツーマン</div></div>
       <div class="cmp-row"><div>場所</div><div>大阪・兵庫</div><div>阪急塚口駅すぐ</div><div>阪急塚口駅すぐ</div><div>カフェ（要相談）</div></div>
       <div class="cmp-row"><div>目的</div><div>体験・楽しむ</div><div>基礎を習得</div><div>作品づくり</div><div>個別に相談</div></div>
       <div class="cmp-row"><div>条件</div><div>どなたでもOK</div><div>どなたでもOK</div><div>基本の編み方ができる方</div><div>どなたでもOK</div></div>
     </div>
     <div class="cmp-cards">
       <div class="cmp-card c1"><h4>🌻 ワンデイ</h4><dl><dt>価格</dt><dd>3,000円</dd><dt>所要</dt><dd>2時間（単発）</dd><dt>場所</dt><dd>大阪・兵庫</dd><dt>条件</dt><dd>どなたでもOK</dd></dl></div>
-      <div class="cmp-card c1"><h4>🧶 趣味コース</h4><dl><dt>価格</dt><dd>12,000円（3回）</dd><dt>所要</dt><dd>2時間 × 3回</dd><dt>場所</dt><dd>阪急塚口駅すぐ</dd><dt>条件</dt><dd>どなたでもOK</dd></dl></div>
+      <div class="cmp-card c1"><h4>🧶 編み物を趣味にする3回コース</h4><dl><dt>価格</dt><dd>12,000円（3回）</dd><dt>所要</dt><dd>2時間 × 3回</dd><dt>場所</dt><dd>阪急塚口駅すぐ</dd><dt>条件</dt><dd>どなたでもOK</dd></dl></div>
       <div class="cmp-card c2"><h4>💐 枯れないお花</h4><dl><dt>価格</dt><dd>5,000円</dd><dt>所要</dt><dd>約2時間（単発）</dd><dt>場所</dt><dd>阪急塚口駅すぐ</dd><dt>条件</dt><dd>基本の編み方ができる方</dd></dl></div>
       <div class="cmp-card c3"><h4>👩‍🏫 プライベート</h4><dl><dt>価格</dt><dd>5,500円／90分</dd><dt>所要</dt><dd>90分～</dd><dt>場所</dt><dd>カフェ（要相談）</dd><dt>条件</dt><dd>どなたでもOK</dd></dl></div>
     </div>
