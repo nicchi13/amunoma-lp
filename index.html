@@ -725,6 +725,13 @@
   .rc-card .seat.soon { color: #b9772a; background: #fbf0df; }
 
   /* ============ NEW: 日程ボックス（募集型） ============ */
+  .thistime {
+    display: block; background: var(--accent); color: #fff;
+    font-weight: 700; font-size: 15px; letter-spacing: .02em;
+    padding: 12px 18px; border-radius: 12px; margin: 4px 0 12px;
+    box-shadow: 0 6px 18px rgba(232,116,59,.28);
+  }
+  @media(max-width:600px){ .thistime { font-size: 14px; text-align: center; } }
   .schedule {
     background: linear-gradient(180deg, var(--warm), #fff);
     border: 1.5px solid var(--line-warm); border-radius: 14px;
@@ -1112,9 +1119,9 @@
         <span class="rc-emoji">💐</span>
         <div class="rc-txt">
           <h4>編んで飾る、枯れないお花</h4>
-          <div class="rc-when">日程調整中</div>
+          <div class="rc-when">7/25（土）13:00〜15:00</div>
         </div>
-        <span class="seat soon">近日募集</span>
+        <span class="seat open">募集中</span>
       </a>
       <a href="#lesson-cafe" class="rc-card" style="text-decoration:none;color:inherit;">
         <span class="rc-emoji">☕</span>
@@ -1257,14 +1264,15 @@
           <span class="first-flag">★ 基本ができる方への、特別な一日</span>
           <h3>編んで飾る、<br>枯れないお花</h3>
           <div class="meta-tag">完成したお花はお持ち帰り、ご自宅で飾って楽しめます。</div>
+          <div class="thistime">🌻 今回は夏にぴったりな「ひまわり」を編みます</div>
           <div class="schedule">
             <span class="sc-head">💐 単発レッスン</span>
             <div class="sc-title">編んで飾る、枯れないお花（1日完結）</div>
             <dl>
-              <dt>📅</dt><dd>日程は調整中（LINEでご案内）</dd>
-              <dt>⏰</dt><dd>約2時間</dd>
-              <dt>👥</dt><dd>定員4名〜（少人数）</dd>
-              <dt>💰</dt><dd><b>5,000円</b>（材料費込み）</dd>
+              <dt>📅</dt><dd>7/25（土）13:00〜15:00</dd>
+              <dt>📍</dt><dd>阪急塚口駅すぐ</dd>
+              <dt>👥</dt><dd>4名程度（少人数制）</dd>
+              <dt>💰</dt><dd><b>4,500円</b>（材料費込み）</dd>
             </dl>
           </div>
           <p class="desc">
@@ -1357,10 +1365,10 @@
     <div class="eyebrow">06 — ひとめで比較</div>
     <h2 class="section-title">レッスンの違い、<span class="hl">並べてみました。</span></h2>
     <div class="cmp">
-      <div class="cmp-row head"><div></div><div>ワンデイ</div><div>編み物を趣味にする<br>3回コース</div><div>枯れないお花</div><div>プライベート</div></div>
-      <div class="cmp-row"><div>価格</div><div>3,000円</div><div>12,000円（全3回）<br><small>1回4,000円</small></div><div>5,000円</div><div>5,500円／90分</div></div>
+      <div class="cmp-row head"><div></div><div>ワンデイ</div><div>編み物を趣味にする<br>3回コース</div><div>編んで飾る、<br>枯れないお花</div><div>プライベート</div></div>
+      <div class="cmp-row"><div>価格</div><div>3,000円</div><div>12,000円（全3回）<br><small>1回4,000円</small></div><div>4,500円</div><div>5,500円／90分</div></div>
       <div class="cmp-row"><div>所要</div><div>2時間（単発）</div><div>2時間 × 3回</div><div>約2時間（単発）</div><div>90分～</div></div>
-      <div class="cmp-row"><div>定員</div><div>4名</div><div>4名</div><div>4名〜</div><div>マンツーマン</div></div>
+      <div class="cmp-row"><div>定員</div><div>4名</div><div>4名</div><div>4名程度</div><div>マンツーマン</div></div>
       <div class="cmp-row"><div>場所</div><div>大阪・兵庫</div><div>阪急塚口駅すぐ</div><div>阪急塚口駅すぐ</div><div>カフェ（要相談）</div></div>
       <div class="cmp-row"><div>目的</div><div>体験・楽しむ</div><div>基礎を習得</div><div>作品づくり</div><div>個別に相談</div></div>
       <div class="cmp-row"><div>条件</div><div>どなたでもOK</div><div>どなたでもOK</div><div>基本の編み方ができる方</div><div>どなたでもOK</div></div>
@@ -1368,7 +1376,7 @@
     <div class="cmp-cards">
       <div class="cmp-card c1"><h4>🌻 ワンデイ</h4><dl><dt>価格</dt><dd>3,000円</dd><dt>所要</dt><dd>2時間（単発）</dd><dt>場所</dt><dd>大阪・兵庫</dd><dt>条件</dt><dd>どなたでもOK</dd></dl></div>
       <div class="cmp-card c1"><h4>🧶 編み物を趣味にする3回コース</h4><dl><dt>価格</dt><dd>12,000円（3回）</dd><dt>所要</dt><dd>2時間 × 3回</dd><dt>場所</dt><dd>阪急塚口駅すぐ</dd><dt>条件</dt><dd>どなたでもOK</dd></dl></div>
-      <div class="cmp-card c2"><h4>💐 枯れないお花</h4><dl><dt>価格</dt><dd>5,000円</dd><dt>所要</dt><dd>約2時間（単発）</dd><dt>場所</dt><dd>阪急塚口駅すぐ</dd><dt>条件</dt><dd>基本の編み方ができる方</dd></dl></div>
+      <div class="cmp-card c2"><h4>💐 編んで飾る、枯れないお花</h4><dl><dt>価格</dt><dd>4,500円</dd><dt>所要</dt><dd>約2時間（単発）</dd><dt>定員</dt><dd>4名程度</dd><dt>場所</dt><dd>阪急塚口駅すぐ</dd><dt>条件</dt><dd>基本の編み方ができる方</dd></dl></div>
       <div class="cmp-card c3"><h4>👩‍🏫 プライベート</h4><dl><dt>価格</dt><dd>5,500円／90分</dd><dt>所要</dt><dd>90分～</dd><dt>場所</dt><dd>カフェ（要相談）</dd><dt>条件</dt><dd>どなたでもOK</dd></dl></div>
     </div>
   </div>
