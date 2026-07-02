@@ -22,16 +22,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg: #ffffff;
-    --cream: #fbf6ef;        /* やわらかな生成り（交互セクション） */
-    --warm: #fbeee2;         /* オレンジの薄い背景 */
-    --ink: #2b2520;
-    --ink-soft: #6e635a;
-    --ink-faint: #9a9085;
-    --line: #ece2d5;
-    --line-warm: #f1ddca;
-    --accent: #e8743b;       /* テラコッタオレンジ（主役） */
-    --accent-deep: #c85a2a;
+    --bg: #fffdf8;
+    --cream: #faf3e4;        /* バナーのクリーム地 */
+    --warm: #fbeedd;         /* オレンジの薄い背景 */
+    --ink: #45322a;          /* こげ茶 */
+    --ink-soft: #7a6355;
+    --ink-faint: #a08c7c;
+    --line: #eee0cb;
+    --line-warm: #f2ddc2;
+    --accent: #e0684b;       /* テラコッタ（主役） */
+    --accent-deep: #c4523a;
+    --mustard: #f0b23e;      /* マスタード（副役） */
+    --mustard-soft: #fbe8c2;
     --peach: #f4b48e;
     --peach-soft: #fbe0ce;
     --ph1: #fbe2d1;
@@ -40,8 +42,8 @@
     --line-green-d: #05a647;
     --radius: 16px;
     --radius-sm: 10px;
-    --shadow: 0 8px 28px rgba(80, 60, 45, 0.07);
-    --shadow-lg: 0 20px 48px rgba(80, 60, 45, 0.11);
+    --shadow: 0 8px 28px rgba(90, 60, 40, 0.08);
+    --shadow-lg: 0 20px 48px rgba(90, 60, 40, 0.12);
     --max: 1080px;
     --max-narrow: 760px;
   }
@@ -227,7 +229,7 @@
   .eyebrow::before { content: ''; width: 26px; height: 1.5px; background: var(--accent); display: inline-block; }
   .section-title { font-size: 30px; line-height: 1.55; margin-bottom: 22px; }
   .section-title .hl {
-    background: linear-gradient(transparent 62%, var(--peach-soft) 62%);
+    background: linear-gradient(transparent 60%, var(--mustard-soft) 60%);
     padding: 0 3px;
   }
   .lead-p { color: var(--ink-soft); font-size: 15.5px; max-width: 680px; }
@@ -247,7 +249,21 @@
     font-size: 44px; line-height: 1.42; margin: 0 auto 22px; max-width: 16em;
     letter-spacing: 0.02em;
   }
-  .hero h1 .hl { color: var(--accent-deep); }
+  .hero h1 .hl { color: var(--accent); }
+  /* バナー風：マスタードのピル型キャッチ */
+  .hero-pill {
+    display: inline-block;
+    background: var(--mustard);
+    color: var(--ink);
+    font-weight: 700; font-size: 14px; letter-spacing: 0.06em;
+    padding: 9px 22px; border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  /* バナー風：ドットの罫線 */
+  .dot-divider {
+    width: min(300px, 60%); height: 6px; margin: 4px auto 24px;
+    background: radial-gradient(circle 3px at 50% 50%, var(--accent) 2.6px, transparent 3px) 0 0 / 16px 6px repeat-x;
+  }
   .hero .h1-sub {
     display: block; font-size: 17px; color: var(--ink-soft);
     font-weight: 500; margin-top: 18px; letter-spacing: 0.02em;
@@ -255,10 +271,10 @@
   .hero .sub { max-width: 540px; margin: 0 auto 28px; color: var(--ink-soft); font-size: 15.5px; }
   .hero-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px; margin-bottom: 32px; }
   .hero-tags span {
-    background: var(--warm); border: 1.5px solid var(--line-warm);
-    color: var(--accent-deep); border-radius: 999px;
-    padding: 7px 16px; font-size: 12.5px; font-weight: 500;
-    box-shadow: 0 2px 0 var(--line-warm);
+    background: #fff; border: 1.5px solid var(--line-warm);
+    color: var(--ink); border-radius: 999px;
+    padding: 7px 16px; font-size: 12.5px; font-weight: 600;
+    box-shadow: 0 2px 0 var(--mustard-soft);
   }
   .hero-tags span:nth-child(odd) { transform: none; }
   .hero-tags span:nth-child(even) { transform: none; }
@@ -413,7 +429,7 @@
 
   /* ============ Stats ============ */
   .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 14px; }
-  .stat { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 16px; text-align: center; }
+  .stat { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 32px 16px; text-align: center; border-bottom: 3px solid var(--mustard); }
   .stat .big { font-family: 'Shippori Mincho', serif; font-size: 42px; color: var(--accent-deep); line-height: 1.1; }
   .stat .big small { font-size: 17px; color: var(--ink-faint); margin-left: 3px; }
   .stat .label { font-size: 12.5px; color: var(--ink-soft); margin-top: 10px; line-height: 1.6; }
@@ -973,11 +989,12 @@
 
 <!-- ============ Hero ============ -->
 <section class="hero">
-  <div class="eyebrow">AMUNOMA — OSAKA / HYOGO</div>
+  <div class="hero-pill">毛糸とゆっくり、「できた！」をやさしくお届け。</div>
   <h1>
     「やってみたい」を、<br><span class="hl">「できた」</span>に。
     <span class="h1-sub">編み物が初めてでも大丈夫。<br>少人数でゆっくり学べる、かぎ針編み教室です。</span>
   </h1>
+  <div class="dot-divider" aria-hidden="true"></div>
   <p class="sub">
     累計50名以上が参加し、<strong style="color:var(--accent-deep);">約70%が編み物初心者</strong>。<br class="br-sp" />かぎ針の持ち方から、ゆっくり丁寧に。「私でもできた」を、いっしょに。
   </p>
